@@ -1,0 +1,5 @@
+#!/bin/bash
+
+read -p "Please enter password for root MySQL user:" PASSWORD
+DATAPATH="/var/mysql"
+sudo docker run --name db -p 3306:3306 --restart unless-stopped -v "${DATAPATH}:/var/lib/mysql" -e MYSQL_ROOT_PASSWORD="${PASSWORD}" -d mysql:latest

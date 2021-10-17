@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sudo yum update -y
+
+# install docker
+sudo yum install docker
+
+# add Docker usr to ec2-user to avoid sudo commands
+sudo usermod -a -G docker ec2-user
+
+# ensure Docker is auto-starting
+sudo chkconfig docker on
+
+# install docker compose
+sudo mkdir -p /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
