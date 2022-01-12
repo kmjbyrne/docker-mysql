@@ -2,4 +2,4 @@
 
 First, run the bootstrap script to get Docker setup.
 
-`bin/setup'
+`bin/setup`
