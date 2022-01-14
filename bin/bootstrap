@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USERPASS=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
+PASSWORD=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
 USERNAME="app-user"
 
 sed -i "s/{{USERNAME}}/${USERNAME}/g" scripts/setup.sql
