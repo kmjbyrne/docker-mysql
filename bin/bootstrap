@@ -8,4 +8,4 @@ sed -i "s/{{PASSWORD}}/${PASSWORD}/g" scripts/setup.sql
 
 read -p "Enter your MySQL root password: " ROOT_PASSWORD
 
-mysql -u root -p "${ROOT_PASSWORD}" < scripts/setup.sql
+mysql -h "127.0.0.1" -u "root" --password="${ROOT_PASSWORD}" < scripts/setup.sql
