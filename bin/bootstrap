@@ -1,0 +1,11 @@
+#!/bin/bash
+
+USERPASS=$(date +%s | sha256sum | base64 | head -c 16 ; echo)
+USERNAME="app-user"
+
+sed -i "s/{{USERNAME}}/${USERNAME}/g" scripts/setup.sql
+sed -i "s/{{PASSWORD}}/${PASSWORD}/g" scripts/setup.sql
+
+read -p "Enter your MySQL root password: " ROOT_PASSWORD
+
+mysql -u root -p "${ROOT_PASSWORD}" < scripts/setup.sql
