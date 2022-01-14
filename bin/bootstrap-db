@@ -9,3 +9,5 @@ sed -i "s/{{PASSWORD}}/${PASSWORD}/g" scripts/setup.sql
 read -p "Enter your MySQL root password: " ROOT_PASSWORD
 
 mysql -h "127.0.0.1" -u "root" --password="${ROOT_PASSWORD}" < scripts/setup.sql
+
+echo "Database credential pair: app-user:${PASSWORD}"
